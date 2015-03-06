@@ -14,7 +14,7 @@ Then, to obtain and work with the code, do the following:
 
 ```bash
 # 1. Clone the repo:
-git clone git@github.com:nemac/jermaine
+git clone git@github.com:embeepea/jermaine
 
 # 2. Cd into it:
 cd jermaine
