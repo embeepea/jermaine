@@ -1,9 +1,14 @@
 /*global describe, it, beforeEach, expect, xit, jasmine */
 
+if (typeof(window) === "undefined") {
+    // create mock window object for running tests outside of a browser
+    window = {};
+}
+
 describe("namespace utility", function () {
     "use strict";
 
-    var namespace = window.jermaine.util.namespace;
+    var namespace = require('../../src/util/namespace.js');
 
     it("should throw an error on a malformed namespace string", function () {
         expect(function () {
@@ -90,7 +95,6 @@ describe("namespace utility", function () {
 
     it("should make the aliases accessible in the namespace function", function () {
         var ns1, ns2, ns3, nsFunction;
-
         nsFunction = function (ns) {
             var t = new this.Thing();
 
@@ -114,7 +118,6 @@ describe("namespace utility", function () {
                           Thing: "aliases.testTwo.Thing"
                         },
                         nsFunction);
-
 
         expect(ns3.whatever).not.toBeUndefined();
         expect(ns3.thing).not.toBeUndefined();
